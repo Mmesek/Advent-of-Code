@@ -20,7 +20,7 @@ def request_input(day: int, year: int = datetime.now().year) -> list[str]:
     import requests
 
     print("REQUESTING", day)
-    with open("Advent of Code/cookie.dat", "r", newline="", encoding="utf-8") as file:
+    with open("cookie.dat", "r", newline="", encoding="utf-8") as file:
         cookie = file.readline()
     r = requests.get(f"https://adventofcode.com/{year}/day/{day}/input", cookies={"session": cookie})
     with open(f"inputs/day{day}_input.txt", "w", newline="", encoding="utf-8") as file:
