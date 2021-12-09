@@ -1,10 +1,11 @@
 from functools import reduce
-from AoC.utils import get_input, check_answer
+from AoC.utils import get_input
 
 
 def crawl(x: int, y: int, rows: list[list[int]], previous_value: int, traversed: set = None) -> int:
+    """Crawl basin from starting position x,y increasing size on until hitting 9"""
     basin = 0
-    if (previous_value is not None and rows[y][x] - previous_value != 1) or rows[y][x] == 9:
+    if rows[y][x] == 9:
         return basin
 
     if not traversed:
@@ -28,6 +29,8 @@ def crawl(x: int, y: int, rows: list[list[int]], previous_value: int, traversed:
 
 
 def solve(rows: list[int]) -> tuple[int, int]:
+    """Iterates over rows and columns in iterable
+    Counts Low Points and Crawls Basins"""
     lows = []
     sizes = []
     for y, row in enumerate(rows):
