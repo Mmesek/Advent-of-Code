@@ -41,8 +41,10 @@ def check_answer(answer: int, day: int, part: int, year: int = datetime.now().ye
     import requests
     with open("cookie.dat", "r", newline="", encoding="utf-8") as file:
         cookie = file.readline()
-    r = requests.request("POST", f"https://adventofcode.com/{year}/day/{day}/answer", cookies={"session": cookie}, data=f"level={part}&answer={answer}",)
-    return r.text.splitlines()
+    r = requests.request("POST", f"https://adventofcode.com/{year}/day/{day}/answer", cookies={"session": cookie}, data={"level":part, "answer":answer})
+    if not "correct" in r.text:
+        return False
+    return True
 
 def solve(day: int, part: int, function: callable, preprocess: callable, example: str = None, expected_solution: int = None):
     if example and expected_solution:
@@ -53,4 +55,4 @@ def solve(day: int, part: int, function: callable, preprocess: callable, example
         assert r == expected_solution, f"Solution for example doesn't match expected {expected_solution} example solution (got {r})"
     solution = function(get_input(day, preprocess))
     print(solution)
-    #check_answer(solution, day, part)
+    print(check_answer(solution, day, part))
