@@ -8,15 +8,15 @@ for a, b in paths:
     maps[a].add(b)
     maps[b].add(a)
 
-def walk(paths: list[str], visited: list[str]) -> list[list[str]]:
+def walk(paths: list[str], visited: list[str], revisit: bool = False) -> list[list[str]]:
     branches = []
     for path in paths:
         if path == "end":
             branches.append(visited+[path])
             continue
-        if path not in visited or path.isupper():
+        if path not in visited or path.isupper() or (revisit and path not in {"start","end"} and len(maps[path]) >= 1 and visited.count(path) <= 1):
             branches.append(visited+[path])
-            r = walk(maps[path], visited+[path])
+            r = walk(maps[path], visited+[path], revisit)
             if r:
                 branches.append(r)
     return branches
