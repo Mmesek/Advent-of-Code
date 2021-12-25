@@ -2,13 +2,21 @@ from typing import Any
 from datetime import datetime
 
 
-def get_input(day: int, func: callable = lambda i: i) -> list[Any]:
+def get_input(day: int = None, func: callable = lambda i: i, *, year: int = None) -> list[Any]:
     """Retrieves input from a file calling `func` on each line"""
+    if not year:
+        from .__main__ import args
+        year = args.year
+
+    if not day:
+        from .__main__ import args
+        day = args.day
+
     try:
-        with open(f"inputs/day{day}_input.txt", "r", newline="", encoding="utf-8") as file:
+        with open(f"inputs/{year}/{day}.txt", "r", newline="", encoding="utf-8") as file:
             lines = file.readlines()
     except IOError:
-        lines = request_input(day)
+        lines = request_input(day, year)
     array = []
     for line in lines:
         array.append(func(line.strip()))
@@ -23,7 +31,9 @@ def request_input(day: int, year: int = datetime.now().year) -> list[str]:
     with open("cookie.dat", "r", newline="", encoding="utf-8") as file:
         cookie = file.readline()
     r = requests.get(f"https://adventofcode.com/{year}/day/{day}/input", cookies={"session": cookie})
-    with open(f"inputs/day{day}_input.txt", "w", newline="", encoding="utf-8") as file:
+    from pathlib import Path
+    Path(f"inputs/{year}").mkdir(exist_ok=True)
+    with open(f"inputs/{year}/{day}.txt", "w", newline="", encoding="utf-8") as file:
         file.writelines(r.text)
     return r.text.splitlines()
 

@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Current Day",
+            "type": "python",
+            "request": "launch",
+            "module": "AoC",
+            "args": ["--day", "${fileBasenameNoExtension}", "--year", "${relativeFileDirname}"]
+        }
+    ]
+}
