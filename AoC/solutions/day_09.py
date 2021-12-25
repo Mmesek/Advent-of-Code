@@ -1,5 +1,5 @@
 from functools import reduce
-from AoC.utils import get_input
+from AoC.utils import solve as solver
 
 
 def crawl(x: int, y: int, rows: list[list[int]], previous_value: int, traversed: set = None) -> int:
@@ -46,7 +46,9 @@ def solve(rows: list[int]) -> tuple[int, int]:
     largest = sorted(sizes)
     return sum(lows) + len(lows), reduce(lambda x, y: x * y, largest[-3:])
 
-
-rows = get_input(9, lambda x: [int(i) for i in x])
-risk_levels, largest_basins = solve(rows)
-print(risk_levels, largest_basins)
+example = """2199943210
+3987894921
+9856789892
+8767896789
+9899965678""".splitlines()
+solver(9, 1, solve, lambda x: [int(i) for i in x], example, (15,1134))

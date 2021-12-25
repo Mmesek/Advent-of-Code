@@ -54,6 +54,17 @@ def iterate(iterable: list[list[Octopus]]) -> tuple[int, int]:
     return total_flashes, all_flashed[0]
 
 
-from AoC.utils import get_input
+from AoC.utils import solve
 
-print(iterate(get_input(11, lambda x: [Octopus(i) for i in x])))
+example = """5483143223
+2745854711
+5264556173
+6141336146
+6357385478
+4167524645
+2176841721
+6882881134
+4846848554
+5283751526""".splitlines()
+
+solve(11, 1, iterate, lambda x:[Octopus(i) for i in x], example, (1656, 195))
