@@ -1,9 +1,9 @@
 from AoC.utils import get_input
 
-puzzle_input = get_input(4, lambda x: [int(n) for n in x.replace(",", " ").split(" ") if n])
-
 
 def prepare_boards() -> tuple[list[int], list[list[int]]]:
+    """Retrieves order and boards from puzzle input"""
+    puzzle_input = get_input(4, lambda x: [int(n) for n in x.replace(",", " ").split(" ") if n])
     boards = []
     board = []
     for i in puzzle_input:
@@ -20,6 +20,7 @@ def prepare_boards() -> tuple[list[int], list[list[int]]]:
 
 
 def sum_unmarked(board: list[list[int]], marked: list[int]) -> int:
+    """Summarizes not marked numbers"""
     unmarked = []
     for row in board:
         for n in row:
@@ -29,6 +30,7 @@ def sum_unmarked(board: list[list[int]], marked: list[int]) -> int:
 
 
 def find_winning_boards() -> int:
+    """Generator yielding winning boards in order"""
     discarded_boards = []
     for x, i in enumerate(order):
         previous_numbers = order[:x] + [i]
