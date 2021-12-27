@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks":[
+        {
+            "label": "Generate Day Stub",
+            "type": "shell",
+            "command": "python scripts/generate_stub.py ${input:day} ${input:language} ${input:year}",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "day",
+            "type": "pickString",
+            "options": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"],
+            "default": "1",
+            "description": "Day stub to generate",
+        },
+        {
+            "id": "year",
+            "type": "promptString",
+            "default": "Current",
+            "description": "Day of which Year to generate"
+        },
+        {
+            "id": "language",
+            "type": "promptString",
+            "default": "python",
+            "description": "Language stub to generate"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "python":{
+        "content":"from AoC.utils import solve\n\n\nexample = \"\"\"\n\"\"\".splitlines()\n\n\ndef solution(puzzle_input: list[str]) -> int:\n    return 0\n\nsolve({day}, 1, solution, lambda x: x, example, (0, 0))\n",
+        "extension":"py"
+    }
+}
