@@ -1,4 +1,6 @@
 # Advent of Code
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/Mmesek/Advent-of-Code)
+
 My solutions for [Advent of Code](https://adventofcode.com/) puzzles alongside utility functions
 
 Loads inputs from `/inputs` directory. Downloads directly from website when `cookie.dat` is specified
