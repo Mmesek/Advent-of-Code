@@ -2,7 +2,7 @@ from typing import Any
 from datetime import datetime
 
 
-def get_input(day: int = None, func: callable = lambda i: i, *, year: int = None) -> list[Any]:
+def get_input(day: int = None, func: callable = lambda i: i, *, year: int = None, strip: bool = True) -> list[Any]:
     """Retrieves input from a file calling `func` on each line"""
     if not year:
         from .__main__ import args
@@ -19,7 +19,7 @@ def get_input(day: int = None, func: callable = lambda i: i, *, year: int = None
         lines = request_input(day, year)
     array = []
     for line in lines:
-        array.append(func(line.strip()))
+        array.append(func(line.strip() if strip else line))
     return array
 
 
@@ -46,13 +46,13 @@ def check_answer(answer: int, day: int, part: int, year: int = datetime.now().ye
         return False
     return True
 
-def solve(day: int, part: int, function: callable, preprocess: callable, example: str = None, expected_solution: int = None):
+def solve(day: int, part: int, function: callable, preprocess: callable, example: str = None, expected_solution: int = None, strip: bool = True):
     if example and expected_solution:
         arr = []
         for line in example:
-            arr.append(preprocess(line.strip()))
+            arr.append(preprocess(line.strip() if strip else line))
         r = function(arr)
         assert r == expected_solution, f"Solution for example doesn't match expected {expected_solution} example solution (got {r})"
-    solution = function(get_input(day, preprocess))
+    solution = function(get_input(day, preprocess, strip=strip))
     print(solution)
     print(check_answer(solution, day, part))
