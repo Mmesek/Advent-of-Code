@@ -46,13 +46,13 @@ def check_answer(answer: int, day: int, part: int, year: int = datetime.now().ye
         return False
     return True
 
-def solve(day: int, part: int, function: callable, preprocess: callable, example: str = None, expected_solution: int = None, strip: bool = True):
+def solve(day: int, part: int, function: callable, preprocess: callable, example: str = None, expected_solution: int = None, strip: bool = True, **kwargs):
     if example and expected_solution:
         arr = []
         for line in example:
             arr.append(preprocess(line.strip() if strip else line))
-        r = function(arr)
+        r = function(arr, **kwargs)
         assert r == expected_solution, f"Solution for example doesn't match expected {expected_solution} example solution (got {r})"
-    solution = function(get_input(day, preprocess, strip=strip))
+    solution = function(get_input(day, preprocess, strip=strip), **kwargs)
     print(solution)
     print(check_answer(solution, day, part))
