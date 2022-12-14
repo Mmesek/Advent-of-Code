@@ -14,5 +14,6 @@
 | [12](./day_11.py) |⭐   |⭐    |  14.03 ms |   6.2   s | 33 / 80     |
 | [12](./day_12.py) |⭐   |⭐    |  75.33  s | Too long  | 48 / 86     |
 | [13](./day_13.py) |⭐   |⭐    |   1.01 ms | 374.03 ms | 29 / 75     |
+| [14](./day_14.py) |     |       |  53.88 ms |   2.17  s | 41 / 59     |
 
 *Lines of Code represent solution function lines and total lines in a file (including examples & empty lines).*
