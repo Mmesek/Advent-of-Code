@@ -18,5 +18,6 @@
 | [15](./day_15.py) |⭐   |⭐    |  20.85  s |  62.68  s | 36 / 78     |
 | [16](./day_16.py) |⭐   |⭐    | 636.25 ms |  23.35  s | 31 / 66     |
 | [17](./day_17.py) |⭐   |⭐    |   1.11  s |   3.46  s | 40 / 94     |
+| [18](./day_18.py) |⭐   |⭐    |   4.64 ms | 203.34 ms | 31 / 63     |
 
 *Lines of Code represent solution function lines and total lines in a file (including examples & empty lines).*
