@@ -24,12 +24,16 @@ SHAPES = [
 
 def draw(matrix: dict[list[int]], y: int = None, offset: int = None, rock: Rock = None, state: str = ""):
     print(state)
+
     if rock:
         rock = rock.with_offset(offset, y)
+
     _max = max([k for k, v in matrix.items() if v] or [0])
+
     for y in sorted(set(list(matrix.keys()) + list(range(_max, _max + 6))), reverse=True):
         if y < 0:
             continue
+
         row = []
         for x in range(7):
             if rock and (y, x) in rock:
@@ -38,8 +42,11 @@ def draw(matrix: dict[list[int]], y: int = None, offset: int = None, rock: Rock 
                 row.append("#")
             else:
                 row.append(".")
+
         print("".join(row))
+
     print()
+
     if not rock:
         print()
 
@@ -78,8 +85,10 @@ def solution(puzzle_input: list[str], iterations: int = 2022) -> int:
         value = i % 5, movement % length, tuple(tuple(matrix[y]) for y in range(highest, highest - 31, -1))
         if value in cache.keys():
             iteration, height = cache[value]
+
             diff = i - iteration
             repeat = (iterations - i) // diff
+
             extra += (highest - height) * repeat
             i += diff * repeat
 

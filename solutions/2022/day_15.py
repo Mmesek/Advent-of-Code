@@ -50,18 +50,16 @@ def solution(puzzle_input: list[str], y: int = 10) -> int:
 
 def solution_2(puzzle_input: list[str]) -> int:
     sensors, _ = parse(puzzle_input)
+    x = 0
     for y in range(4000000):
-        x = 0
+        current_end = 0
         ranges = []
 
         for _x, _y, distance in sensors:
             if (dy := abs(_y - y)) <= distance:
                 ranges.append((_x - (distance - dy), _x + (distance - dy)))
 
-        ranges = sorted(ranges)
-        current_end = 0
-
-        for start, end in ranges:
+        for start, end in sorted(ranges):
             if start > current_end:
                 x = start - 1
                 break

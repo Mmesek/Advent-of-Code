@@ -19,7 +19,7 @@ hmdt: 32
 """.splitlines()
 
 
-def run(mapped):
+def run(mapped: dict[str, str]) -> int:
     try_later = [monkey for monkey in mapped.keys()]
 
     while try_later:
@@ -32,11 +32,11 @@ def run(mapped):
     return eval(mapped["root"])
 
 
-def solution(puzzle_input: list[str]) -> int:
+def solution(puzzle_input: list[tuple[str]]) -> int:
     return int(run({monkey: job for monkey, job in puzzle_input}))
 
 
-def solution_2(puzzle_input: list[str]) -> int:
+def solution_2(puzzle_input: list[tuple[str]]) -> int:
     mapped = {monkey: job for monkey, job in puzzle_input}
     mapped["root"] = mapped["root"].replace("+", ",").replace("*", ",").replace("-", ",").replace("/", ",")
     i = 0
