@@ -7,6 +7,7 @@
 | [1](./day_01.py)  |⭐   |⭐    |   1.7  ms |   3.6  ms |  13 / 42    |
 | [2](./day_02.py)  |⭐   |⭐    |   5.2  ms |   2.5  ms |  26 / 51    |
 | [2](./day_03.py)  |⭐   |      |           |           |  43 / 64    |
+| [2](./day_04.py)  |⭐   |⭐    |   0.19 ms |    8.15 s |  24 / 50    |
 
 
 *Benchmarked on i7-6700k @ 48 GB RAM by decorating solution functions.*
