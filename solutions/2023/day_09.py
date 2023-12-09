@@ -6,7 +6,7 @@ example = """0 3 6 9 12 15
 10 13 16 21 30 45""".splitlines()
 
 
-def get_difference(history, result) -> list[int]:
+def get_difference(history: list[int], result: callable) -> list[int]:
     differences = [history[x + 1] - a for x, a in enumerate(history[:-1])]
 
     if len(set(differences)) == 1:
