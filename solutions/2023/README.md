@@ -1,5 +1,5 @@
-![](https://img.shields.io/badge/days%20completed-10-red)
-![](https://img.shields.io/badge/stars%20⭐-17-yellow)
+![](https://img.shields.io/badge/days%20completed-14-red)
+![](https://img.shields.io/badge/stars%20⭐-23-yellow)
 
 ## Summary
 |       Day         |Part 1|Part 2|Benchmark 1|Benchmark 2|Lines of Code|
@@ -17,6 +17,7 @@
 | [11](./day_11.py) |⭐   |⭐    |    2.65 s |    2.69 s |  17 / 45   |
 | [15](./day_15.py) |⭐   |⭐    |   10.53 ms | 12.17 ms |  23 / 44   |
 | [19](./day_19.py) |⭐   |      |   23.48 ms |           |  47 / 86   |
+| [20](./day_20.py) |⭐   |      |  254.74 ms |           |  119       |
 
 
 *Benchmarked on i7-6700k @ 48 GB RAM by decorating solution functions.*
