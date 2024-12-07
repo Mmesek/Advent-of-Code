@@ -9,5 +9,7 @@
 | [3](./day_03.py)  |⭐   |⭐    |           |           |    35       |
 | [4](./day_04.py)  |⭐   |⭐    |           |           |    64       |
 | [5](./day_05.py)  |⭐   |⭐    |           |           |    95       |
+| [6](./day_06.py)  |⭐   |      |           |           |    110       |
+| [7](./day_07.py)  |⭐   |⭐    |           |           |    54       |
 
 *Lines of Code represent total lines in a file (including examples & empty lines).*
