@@ -35,27 +35,27 @@ def distance(
             break
 
 
-def check(char: str, g: Grid, antinodes: set, part2: bool = True):
+def check(char: str, g: Grid, antinodes: set, single_pass: bool = True):
     for f in g.find(char):
         for dy, dx, c in g.find_nearest(f.y, f.x, char):
             if c == f:
                 continue
-            if not part2:
+            if not single_pass:
                 antinodes.add(c)
                 antinodes.add(f)
-            distance(f, lambda x: x + (dy, dx), c, g, antinodes, part2)
-            distance(f, lambda x: x - (dy, dx), c, g, antinodes, part2)
+            distance(f, lambda x: x + (dy, dx), c, g, antinodes, single_pass)
+            distance(f, lambda x: x - (dy, dx), c, g, antinodes, single_pass)
 
 
-def solution(puzzle_input: list[str], part2: bool = True) -> int:
+def solution(puzzle_input: list[str], single_pass: bool = True) -> int:
     g = Grid.make_grid(puzzle_input)
     antinodes = set()
     for char in g.grid_characters:
         if char != ".":
-            check(char, g, antinodes, part2)
+            check(char, g, antinodes, single_pass)
 
     return len(antinodes)
 
 
 solve(8, 1, solution, lambda x: x, example, 14)
-solve(8, 2, solution, lambda x: x, example, 34, part2=False)
+solve(8, 2, solution, lambda x: x, example, 34, single_pass=False)
