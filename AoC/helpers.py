@@ -6,22 +6,53 @@ from dataclasses import dataclass
 class Coordinate:
     y: int
     x: int
+    grid: "Grid" = None
 
-    def within_bounds(self, height: int, length: int):
-        r = 0 <= self.y <= height and 0 <= self.x <= length
+    def within_bounds(self, height: int = None, length: int = None):
+        r = 0 <= self.y <= (height or self.grid.height) and 0 <= self.x <= (
+            length or self.grid.length
+        )
         return r
 
     def __add__(self, other: tuple[int, int]):
-        return Coordinate(self.y + other[0], self.x + other[1])
+        return Coordinate(self.y + other[0], self.x + other[1], self.grid)
 
     def __sub__(self, other: tuple[int, int]):
-        return Coordinate(self.y - other[0], self.x - other[1])
+        return Coordinate(self.y - other[0], self.x - other[1], self.grid)
 
     def __eq__(self, value: "Coordinate"):
         return self.x == value.x and self.y == value.y
 
     def __hash__(self):
         return hash((self.y, self.x))
+
+    def up(self):
+        return Coordinate(self.y - 1, self.x, self.grid)
+
+    def up_right(self):
+        return Coordinate(self.y - 1, self.x + 1, self.grid)
+
+    def up_left(self):
+        return Coordinate(self.y - 1, self.x - 1, self.grid)
+
+    def down(self):
+        return Coordinate(self.y + 1, self.x, self.grid)
+
+    def down_right(self):
+        return Coordinate(self.y + 1, self.x + 1, self.grid)
+
+    def down_left(self):
+        return Coordinate(self.y + 1, self.x - 1, self.grid)
+
+    def right(self):
+        return Coordinate(self.y, self.x + 1, self.grid)
+
+    def left(self):
+        return Coordinate(self.y, self.x - 1, self.grid)
+
+    @property
+    def on_grid(self):
+        return self.grid[self.y, self.x]
 
 
 class Grid:
@@ -49,7 +80,7 @@ class Grid:
         for y, line in self.grid.items():
             for x, _char in line.items():
                 if char == _char:
-                    coords.append(Coordinate(y, x))
+                    coords.append(Coordinate(y, x, self))
         return coords
 
     def find_nearest(
