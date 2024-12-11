@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/days%20completed-11-red)
-![](https://img.shields.io/badge/stars%20⭐-18-yellow)
+![](https://img.shields.io/badge/stars%20⭐-19-yellow)
 
 ## Summary
 |       Day         |Part 1|Part 2|Benchmark 1|Benchmark 2|Lines of Code|
@@ -14,6 +14,6 @@
 | [8](./day_08.py)  |⭐   |⭐    |           |           |    62       |
 | [9](./day_09.py)  |⭐   |      |           |           |    80       |
 | [10](./day_10.py)  |⭐   |⭐    |           |           |    82       |
-| [11](./day_11.py)  |⭐   |      |           |           |    40       |
+| [11](./day_11.py)  |⭐   |⭐    |           |           |    40       |
 
 *Lines of Code represent total lines in a file (including examples & empty lines).*
